@@ -1,0 +1,28 @@
+# backend/.cursorrules（后端API与数据规范专用）
+
+## 1. 技术选型与依赖
+- 主框架：Express.js
+- 数据库：lowdb（开发期），后期可升级为MongoDB/MySQL/PostgreSQL
+- API文档：OpenAPI/Swagger
+- 测试：Jest/Supertest
+- 跨域支持：cors
+- 数据校验：Joi（如有复杂数据校验需求）
+
+## 2. API与接口规范
+- 所有接口遵循 RESTful 设计，接口路径、参数、返回值、错误码结构化
+- 推荐 OpenAPI/Swagger 自动生成接口文档
+- 路由命名统一（如 /api/homepage、/api/resource）
+- 参数、返回值、错误码结构化
+
+## 3. 代码与注释规范
+- 代码风格统一采用 Prettier + ESLint（airbnb 或 ant-design 规范）
+- 注释规范：文件头部、函数/类、业务逻辑关键流程均需注释，便于AI自动识别
+- 命名规范：驼峰命名，文件小写
+
+## 4. 测试与回滚
+- 测试用例结构清晰，覆盖率>80%
+- 支持接口、数据、逻辑的自动化测试与回滚
+
+## 5. 兼容性与扩展性
+- 技术、库、接口、数据结构均标准化、结构化，便于AI自动化处理和后续扩展
+- 如有冲突，以本文件为准，补充不覆盖根目录规则 

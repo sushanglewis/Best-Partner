@@ -1,0 +1,36 @@
+# frontend/.cursorrules（NextUI+three.js 规范专用）
+
+## 1. 技术选型与依赖
+- 主框架：React
+- UI组件库：NextUI（https://nextui.org/），支持明暗主题切换，禁止 MUI/Antd/@material/web
+- 3D交互：three.js（LandingPage 3D模型展示与交互）
+- 路由：react-router-dom v6
+- 状态管理：可选 Redux Toolkit
+- 网络请求：axios
+- 测试：Jest + React Testing Library
+- 样式：NextUI 主题系统 + 全局 CSS 变量，支持主题切换
+
+## 2. UI/样式/主题
+- 全站采用 NextUI 体系，支持明暗主题切换、响应式布局
+- 主题、配色、圆角、动效等全部通过 NextUI 主题系统和 CSS 变量集中管理
+- 禁止混用 MUI/Antd/@material/web 组件
+- 组件命名、样式命名遵循 NextUI/React 规范
+
+## 3. 页面与组件结构
+- pages/ 下为五大页面（LandingPage、HomePage、SummaryPage、ExperiencePage、ProjectsPage）
+- components/ 下为全局复用组件（NavigationBar、FooterBar、ThemeToggle、SocialIcons等）
+- assets/3dmodel/ 下为 three.js 3D模型资源
+- config/config.js 结构化存储所有数据（个人信息、卡片、经历、项目、社交等）
+
+## 4. 交互与动画
+- LandingPage 必须实现 three.js 3D模型的旋转、缩放、点击交互
+- 底部按钮“开始表演吧”可跳转或触发动画
+- 全站支持沉浸式、科技感动画与交互
+
+## 5. 主题切换与响应式
+- 主题切换通过 NextUI 主题系统实现，支持明暗模式
+- 响应式断点、布局、间距等遵循 NextUI 建议
+
+## 6. 兼容性与扩展性
+- 所有组件、样式、数据结构均标准化、结构化，便于AI自动化处理和后续扩展
+- 如有冲突，以本文件为准，补充不覆盖根目录规则 
