@@ -1,0 +1,21 @@
+# Agent service dependencies (pinned for compatibility)
+fastapi==0.111.0
+uvicorn==0.30.1
+pydantic==2.8.2
+langgraph==0.2.42
+# langgraph-cli removed to avoid pulling langgraph-api requiring langchain-core>=0.3.64
+langchain==0.2.14
+langchain-core==0.2.42
+langchain-community==0.2.12
+langchain-openai==0.1.21
+redis==5.0.7
+httpx==0.27.0
+tenacity==8.5.0
+python-dotenv==1.0.1
+orjson==3.10.7
+# 通义千问（DashScope SDK）
+dashscope>=1.17.0
+# PostgreSQL checkpointer for LangGraph
+langgraph-checkpoint-postgres>=1.0.6
+# Add psycopg binary wheel to enable Postgres connections without system libpq
+psycopg[binary]>=3.1.18
