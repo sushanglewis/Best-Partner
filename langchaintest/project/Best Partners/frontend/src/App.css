@@ -1,0 +1,66 @@
+/* Reset & base */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #111; }
+
+a { color: inherit; text-decoration: none; }
+
+/* 删除无意义 .page 规则 */
+/* .page { min-height: 100%; background: #fafafa; } */
+
+/* Topbar */
+.topbar { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #eee; }
+.nav { width: 100%; max-width: 1920px; margin: 0 auto; height: 56px; display: flex; align-items: center; justify-content: flex-start; gap: 20px; padding: 0 16px; }
+.nav .brand { font-weight: 700; margin-right: 8px; }
+.nav a { display: inline-flex; align-items: center; height: 100%; padding: 0 10px; }
+.nav a:hover { color: #2563eb; }
+
+/* Hero */
+.hero { display: grid; place-items: center; padding: 40px 0; }
+.hero-content { width: 100%; max-width: 1920px; margin: 0 auto; padding: 0 16px; display: flex; flex-direction: column; align-items: center; }
+.title { font-size: 40px; line-height: 1.2; text-align: center; margin: 0; }
+.subtitle { font-size: 16px; color: #475569; text-align: center; margin: 0; }
+
+/* Search group */
+.search { display: flex; align-items: center; gap: 10px; width: min(920px, 100%); }
+.search-input { flex: 1; height: 48px; padding: 0 14px; border: 1px solid #d1d5db; border-radius: 12px; outline: none; background: #fff; }
+.search-input:focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+.go { height: 48px; padding: 0 18px; border: none; border-radius: 12px; background: #111827; color: #fff; cursor: pointer; }
+.go:disabled { opacity: .6; cursor: not-allowed; }
+
+/* Cards & lists */
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; }
+.card + .card { margin-top: 12px; }
+.card-title { padding: 12px 14px; font-weight: 600; border-bottom: 1px solid #eee; background: #f8fafc; }
+.card-body { padding: 14px; }
+.card-foot { padding: 12px 14px; border-top: 1px solid #eee; background: #fafafa; }
+
+.list { list-style: none; margin: 0; padding: 0; }
+.list li { padding: 10px 8px; border-bottom: 1px solid #f1f5f9; }
+.list li.active { background: #eef2ff; }
+
+/* Pills, chips */
+.pill { display: inline-flex; align-items: center; padding: 4px 10px; background: #eef2ff; color: #111; border-radius: 999px; font-size: 12px; }
+
+/* Content helpers */
+.pre-wrap { white-space: pre-wrap; }
+.error-tip { color: #dc2626; margin-top: 8px; }
+
+/* Workspace columns - 宽度 100%，外层容器居中 */
+.workspace { width: 100%; }
+.columns { width: 100%; }
+.col.left .list li { cursor: pointer; }
+.col.left .list li.active { background: #e0e7ff; }
+.q-item { margin-bottom: 12px; }
+.q-text { font-weight: 600; margin-bottom: 6px; }
+.q-options { list-style: disc; padding-left: 20px; margin: 0; }
+.q-options li.selected { color: #2563eb; }
+
+/* Models form */
+.form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+.form-row label { font-size: 12px; color: #475569; }
+.form-row input { height: 40px; padding: 0 10px; border: 1px solid #d1d5db; border-radius: 8px; outline: none; }
+.form-row input:focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(59,130,246,0.12); }
+
+/* Utility: 超大容器 */
+.container-xxl { width: 100%; max-width: 1920px; margin: 0 auto; padding: 0 16px; }
