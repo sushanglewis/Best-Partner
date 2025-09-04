@@ -59,9 +59,8 @@ def _build_llm_input(state: RequirementsValidationState) -> Dict[str, Any]:
     要求：
     1) 文件列表（含内容与错误信息）：来自 state.multi_files；
     2) 当前文档：仅 requirements_document.content；
-    3) 现有问题：完整的 state.question_list；
-    4) 当前状态：state.current_status；
-    5) 版本：state.state_version。
+    3) 当前状态：state.current_status；
+    4) 版本：state.state_version。
     """
     messages = state.get("messages", [])
     latest = messages[-1] if messages else {"message_content": ""}
@@ -76,15 +75,10 @@ def _build_llm_input(state: RequirementsValidationState) -> Dict[str, Any]:
     if current_doc_content is None:
         current_doc_content = "无现有文档"
 
-    # 3) 现有问题：完整结构
-    questions = state.get("question_list", []) or []
-    question_list_json = json.dumps(questions, ensure_ascii=False, indent=2)
-
     return {
         "human_message": latest.get("message_content", ""),
         "files": files_json,
         "current_document": current_doc_content,
-        "question_list": question_list_json,
         "current_status": state.get("current_status", "clarifying"),
         "state_version": state.get("state_version", 0),
     }

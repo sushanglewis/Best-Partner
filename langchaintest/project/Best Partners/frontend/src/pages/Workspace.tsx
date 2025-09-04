@@ -192,24 +192,26 @@ export default function Workspace() {
   }
 
   function buildHumanMessage() {
-    const lines: string[] = []
     const currentVer = activeVersionId || latestVersionId || ''
-    const currentDoc = (isEditing ? editorValue : doc) || ''
-    // 包含当前页面需求文档内容
-    lines.push(`需求文档(v${currentVer || '-'}):\n${currentDoc}`)
-
     const selectedMap = currentVer ? (selectedByVersion[currentVer] || {}) : {}
+
+    const parts: string[] = []
+    const base = userText.trim()
+    if (base) parts.push(base)
+
+    // 将“问题content: 勾选的选项content(以&连接)”依次拼接，使用中文逗号分隔
     for (const q of questions) {
       const chosen = selectedMap[q.question_id]
-      if (chosen && chosen.size > 0) {
-        const optionTexts = (q.suggestion_options || []).filter(o => chosen.has(o.option_id)).map(o => o.content)
-        if (optionTexts.length > 0) {
-          lines.push(`问题: ${q.content}\n选项: ${optionTexts.join(' / ')}`)
-        }
+      if (!chosen || chosen.size === 0) continue
+      const optionTexts = (q.suggestion_options || [])
+        .filter(o => chosen.has(o.option_id))
+        .map(o => o.content)
+      if (optionTexts.length > 0) {
+        parts.push(`${q.content}:${optionTexts.join('&')}`)
       }
     }
-    if (userText.trim()) lines.push(`补充: ${userText.trim()}`)
-    return lines.join('\n\n')
+
+    return parts.join('，')
   }
 
   async function handleSubmitFollowup() {

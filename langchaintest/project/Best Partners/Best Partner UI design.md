@@ -58,7 +58,7 @@ FROM public.model_settings
   "multi_files": []
 }
 
-使用消息体中的 thread_id、state_version 轮询 http://localhost:8080/api/v1/requirements/status 接口 每5s一次，并持续判断返回体中的 has_update 是否为true，如果为true 则停止轮询。并立即使用 thread_id 请求 http://localhost:8080/api/v1/requirements/state 接口，获取最新的状态，然后渲染主视觉区页面
+使用消息体中的 thread_id、state_version 轮询 http://localhost:8080/api/v1/requirements/status 接口 每5s一次，并持续判断返回体中的 has_update 是否为true，如果为true 则停止轮询。并立即使用 thread_id 请求 http://localhost:8080/api/v1/requirements/state 接口，获取最新的状态，渲染主视觉区页面
 
 ### top区域
 

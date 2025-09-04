@@ -46,7 +46,7 @@
     "multi_files": [...]
   }
 - 前端动作：
-  - 保存 thread_id/state_version 等并跳转到 /workspace?thread_id=...&state_version=...
+  - 保存 thread_id/state_version 等并跳转到 /workspace?thread_id=...&state_version=...  
 
 ## 3. 事件 B：Workspace 首次加载（全量状态）
 - 前端页面：frontend/src/pages/Workspace.tsx
@@ -71,7 +71,8 @@
 ## 5. 事件 D：Workspace 跟进提交
 - 前端入口：Workspace.tsx 中的 handleSubmitFollowup
 - 人类消息组织：
-  - 组合用户输入（自由文本）+ 当前版本下勾选的问题选项（仅当前版本）
+  - 组合用户输入（自由文本）+ 当前版本下勾选的问题选项（仅当前版本） 
+  （@trae： 请将 workspace 页面的问题content与其下处于勾选状态的选项content 拼接到一起。如 human_message='这是输入文本，问题1:选项1content，问题2:选项2content，问题3:选项2content&选项3content'，并追加在 用户输入后面，统一作为human_message字段进行提交（当用户点击提交时）。并删除 agent下 file_toolscall_agent 与 requirements_analysis_agent 节点构建LLM 上下文消息时 现有问题 的相关代码。 
   - 历史版本的选项不提交；文档内容以“当前页面展示内容”为准
 - 请求：POST /api/v1/requirements/submit
 - 请求体（示例）：
